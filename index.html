@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <title>Pure Time</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 id="clock"></h1>
+  <div id="date"></div>
+
+  <script>
+    // 註冊 Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => {
+          console.log('Service Worker registered:', reg);
+        })
+        .catch(err => {
+          console.error('Service Worker registration failed:', err);
+        });
+    }
+  </script>
+
+  <script>
+    // 更新時間與日期
+    function updateClock() {
+      const options = { hour12: false }; // 24 小時制
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString("zh-TW", options);
+      const dateStr = now.toLocaleDateString("zh-TW", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long"
+      });
+
+      document.getElementById("clock").textContent = timeStr;
+      document.getElementById("date").textContent = dateStr;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>

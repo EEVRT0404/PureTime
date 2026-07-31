@@ -1,0 +1,49 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 防止捲軸出現 */
+}
+
+body {
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+  justify-content: center;   /* 垂直置中 */
+  align-items: center;       /* 水平置中 */
+  background-color: white;
+  color: black;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+/* 時間樣式 (H1) */
+h1#clock {
+  font-size: 300px;   /* 你原本的設定 */
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;          /* 保持在正中央 */
+}
+
+/* 日期樣式：永遠貼在時間下方 */
+#date {
+  font-size: clamp(30px, 4vw, 60px);
+  text-align: center;
+  margin-top: 0em;   /* 與時間保持固定距離 */
+}
+
+/* 淺色模式 */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
