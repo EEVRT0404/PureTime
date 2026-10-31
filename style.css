@@ -1,0 +1,57 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  user-select: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 80px;
+  background-color: white;
+  color: black;
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+#clock-group {
+  width: max-content;
+  max-width: 100%;
+}
+
+/* 時間樣式 (H1) */
+h1#clock {
+  font-size: min(calc((100vw - 160px) / 3), 38vh);
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  text-align: left;
+}
+
+/* 日期樣式：永遠貼在時間下方 */
+#date {
+  font-size: min(calc((100vw - 160px) / 1), 7vh);
+  text-align: left;
+  margin-top: 0em;
+}
+
+/* 淺色模式 */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
