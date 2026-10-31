@@ -8,6 +8,7 @@ html, body {
 body {
   display: flex;
   user-select: none;
+  cursor: text;
   flex-direction: column;
   justify-content: center;
   align-items: center;
